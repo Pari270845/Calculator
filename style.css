@@ -1,0 +1,213 @@
+:root{
+    --bg: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    --glass: rgba(255,255,255,0.1);
+    --text: white;
+    --btn: rgba(255,255,255,0.15);
+    --display: rgba(255,255,255,0.2);
+}
+
+
+body.light{
+    --bg: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    --glass: rgba(255,255,255,0.6);
+    --text: black;
+    --btn: rgba(0,0,0,0.1);
+    --display: rgba(255,255,255,0.8);
+}
+
+body{ 
+    background: var(--bg);
+    font-family: Arial;
+    margin:0;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;  
+    align-items:center;      
+
+    background: transparent; 
+
+}
+
+
+#calculator{
+    position:relative;
+    z-index:1;
+}
+
+#calculator{
+    width:90%;
+    max-width:350px;
+
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+
+    border-radius:20px;
+    padding:15px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.6),   
+        0 0 20px rgba(0, 150, 255, 0.3);  
+
+
+    border: 1px solid rgba(255,255,255,0.2);
+    position: relative;
+    z-index:1;
+}
+
+
+#display{
+    width:100%;
+    box-sizing: border-box;   
+
+    padding:15px;
+    font-size:2.5rem;
+    text-align:right;
+
+    border:none;
+    outline:none;
+
+    background: var(--display);
+    color: var(--text);
+
+    border-radius:10px;
+}
+
+#keys{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    gap:10px;
+    margin-top:15px;
+}
+
+
+button{
+    width:100%;
+    aspect-ratio:1/1;   
+
+    border-radius:50%;
+    border:none;
+
+    background: var(--btn);
+    color: var(--text);
+
+    font-size:1.5rem;
+    font-weight:bold;
+    cursor:pointer;
+
+    transition:0.2s;
+}
+
+button:hover{
+    transform:scale(1.1);
+}
+
+button:active{
+    transform:scale(0.95);
+}
+
+
+.operator-btn{
+    background: orange;
+    color:white;
+}
+
+
+#themeToggle{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 18px;
+
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    color: white;
+
+    transition: 0.2s;
+}
+
+#themeToggle:hover{
+    transform: scale(1.1);
+}
+
+#themeToggle:active{
+    transform: scale(0.9);
+}
+
+@media(max-width:400px){
+    #display{
+        font-size:2rem;
+    }
+
+    button{
+        font-size:1.2rem;
+    }
+}
+
+.space-bg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    z-index: -2;
+
+    background: linear-gradient(135deg, #000428, #001f4d, #003366);
+}
+
+
+.stars{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+
+.stars::before{
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+
+    box-shadow:
+        10vw 20vh white,
+        20vw 40vh white,
+        30vw 60vh white,
+        40vw 10vh white,
+        50vw 80vh white,
+        60vw 30vh white,
+        70vw 50vh white,
+        80vw 20vh white,
+        90vw 70vh white,
+        15vw 90vh white,
+        25vw 10vh white,
+        35vw 40vh white,
+        45vw 60vh white,
+        55vw 20vh white,
+        65vw 80vh white,
+        75vw 30vh white,
+        85vw 50vh white,
+        95vw 10vh white;
+
+    animation: twinkle 2s infinite alternate;
+}
+
+
+@keyframes twinkle{
+    from{opacity:0.3;}
+    to{opacity:1;}
+}
